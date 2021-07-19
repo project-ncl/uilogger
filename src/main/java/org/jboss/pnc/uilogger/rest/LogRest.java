@@ -1,6 +1,8 @@
 package org.jboss.pnc.uilogger.rest;
 
 import lombok.extern.slf4j.Slf4j;
+import org.eclipse.microprofile.openapi.annotations.Operation;
+import org.jboss.pnc.uilogger.app.AppInfo;
 import org.jboss.pnc.uilogger.data.map.DTOConvertor;
 import org.jboss.pnc.uilogger.data.LogRepository;
 import org.jboss.pnc.uilogger.model.WebLog;
@@ -29,13 +31,15 @@ public class LogRest {
     @Inject
     DTOConvertor dtoConvertor;
 
-    @Path("/test")
+    @Operation(hidden = true, summary = "Gets currently running version of ui logger")
+    @Path("/version")
     @GET
-    public Response test() {
-        return Response.ok().entity("UILogger is running.").build();
+    public Response version() {
+        return Response.ok().entity("UILogger is running. " + AppInfo.getAppInfoString()).build();
     }
 
-    @Path("/log")
+    @Operation(summary = "Creates a new log.")
+    @Path("/logs")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Response collectLog(WebLog webLog) {
@@ -46,7 +50,8 @@ public class LogRest {
         return Response.ok().build();
     }
 
-    @Path("/log")
+    @Operation(summary = "Gets all logs.")
+    @Path("/logs")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getLogs() {
