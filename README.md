@@ -18,6 +18,21 @@ mvn clean install quarkus:dev
 
 ## Running app
 
+set DB connection in resources/application.properties or export env variables:
+
+```
+export POSTGRESQL_URL="jdbc:postgresql://connection"
+export POSTGRESQL_USER="user"
+export POSTGRESQL_PASS="password"
+```
+then
+
 ```
 java -jar target/uilogger-runner.jar
 ```
+
+## App info
+
+`/doc` openapi documentation
+
+`/rest/version` endpoint returns version and build information about running app
