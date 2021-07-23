@@ -21,8 +21,6 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Path("/rest")
-@Produces(MediaType.APPLICATION_JSON)
-@Consumes(MediaType.APPLICATION_JSON)
 public class LogRest {
 
     @Inject
