@@ -57,6 +57,9 @@ public class Log implements Serializable {
     @Column(name = "stack")
     private String stack;
 
+    @Column(name = "error_message")
+    private String errorMessage;
+
     public Log() {
 
     }
