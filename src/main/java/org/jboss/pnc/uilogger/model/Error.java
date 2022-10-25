@@ -7,16 +7,16 @@ public class Error {
 
     private String name;
 
-    private String errorMessage;
+    private String message;
 
     private String stack;
 
     public Error() {
     }
 
-    public Error(String name, String errorMessage, String stack) {
+    public Error(String name, String message, String stack) {
         this.name = name;
-        this.errorMessage = errorMessage;
+        this.message = message;
         this.stack = stack;
     }
 

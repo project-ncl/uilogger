@@ -22,10 +22,10 @@ public class DTOConvertorImpl implements DTOConvertor {
         log.setUserLanguage(webLog.getUser().getLanguage());
         log.setUrl(webLog.getUrl());
         log.setData(webLog.getData());
-        log.setName(webLog.getError().getName());
+        log.setErrorName(webLog.getError().getName());
         log.setMessage(webLog.getMessage());
-        log.setStack(webLog.getError().getStack());
-        log.setErrorMessage(webLog.getError().getErrorMessage());
+        log.setErrorStack(webLog.getError().getStack());
+        log.setErrorMessage(webLog.getError().getMessage());
         return log;
     }
 
@@ -33,7 +33,7 @@ public class DTOConvertorImpl implements DTOConvertor {
         WebLog webLog = new WebLog();
         webLog.setClient(new Client(log.getClientVersion(), log.getClientRevision(), log.getClientName()));
         webLog.setUser(new User(log.getUserId(), log.getUserBrowser(), log.getUserLanguage()));
-        webLog.setError(new Error(log.getName(), log.getErrorMessage(), log.getStack()));
+        webLog.setError(new Error(log.getErrorName(), log.getErrorMessage(), log.getErrorStack()));
         webLog.setId(log.getId().toString());
         webLog.setTimestamp(log.getTimestamp());
         webLog.setUrl(log.getUrl());
