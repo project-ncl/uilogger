@@ -22,10 +22,12 @@ public class DTOConvertorImpl implements DTOConvertor {
         log.setUserLanguage(webLog.getUser().getLanguage());
         log.setUrl(webLog.getUrl());
         log.setData(webLog.getData());
-        log.setErrorName(webLog.getError().getName());
         log.setMessage(webLog.getMessage());
-        log.setErrorStack(webLog.getError().getStack());
-        log.setErrorMessage(webLog.getError().getMessage());
+        if (webLog.getError() != null) {
+            log.setErrorName(webLog.getError().getName());
+            log.setErrorStack(webLog.getError().getStack());
+            log.setErrorMessage(webLog.getError().getMessage());
+        }
         return log;
     }
 
