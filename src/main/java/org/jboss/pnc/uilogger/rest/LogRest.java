@@ -7,6 +7,7 @@ import org.jboss.pnc.api.dto.ComponentVersion;
 import org.jboss.pnc.uilogger.app.AppInfo;
 import org.jboss.pnc.uilogger.data.map.DTOConvertor;
 import org.jboss.pnc.uilogger.data.LogRepository;
+import org.jboss.pnc.uilogger.model.Order;
 import org.jboss.pnc.uilogger.model.WebLog;
 import org.jboss.resteasy.annotations.jaxrs.QueryParam;
 
@@ -70,8 +71,9 @@ public class LogRest {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getLogs(
             @QueryParam("pageIndex") @DefaultValue("0") Integer page,
-            @QueryParam("pageSize") @DefaultValue("50") Integer size) {
-        List<WebLog> logs = logRepository.getAll(page, size)
+            @QueryParam("pageSize") @DefaultValue("50") Integer size,
+            @QueryParam("sort") @DefaultValue("DESC") Order sort) {
+        List<WebLog> logs = logRepository.getAll(page, size, sort)
                 .stream()
                 .map(log -> dtoConvertor.fromLog(log))
                 .collect(Collectors.toList());
