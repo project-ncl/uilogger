@@ -3,6 +3,7 @@ package org.jboss.pnc.uilogger.data;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -23,8 +24,11 @@ public class LogRepositoryImpl implements LogRepository {
     }
 
     @Override
-    public List<Log> getAll() {
-        List<Log> logs = em.createQuery("from Log", Log.class).getResultList();
+    public List<Log> getAll(int page, int size) {
+        List<Log> logs = em.createQuery("from Log", Log.class)
+                .setFirstResult(page * size)
+                .setMaxResults(size)
+                .getResultList();
         return logs;
     }
 }
