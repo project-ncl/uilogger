@@ -1,5 +1,7 @@
 package org.jboss.pnc.uilogger.data;
 
+import org.jboss.pnc.uilogger.model.Order;
+
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -24,8 +26,8 @@ public class LogRepositoryImpl implements LogRepository {
     }
 
     @Override
-    public List<Log> getAll(int page, int size) {
-        List<Log> logs = em.createQuery("from Log", Log.class)
+    public List<Log> getAll(int page, int size, Order order) {
+        List<Log> logs = em.createQuery("from Log l order by l.id " + order, Log.class)
                 .setFirstResult(page * size)
                 .setMaxResults(size)
                 .getResultList();
