@@ -8,6 +8,6 @@ public interface LogRepository {
 
     public Log get(Long id);
 
-    public List<Log> getAll();
+    public List<Log> getAll(int page, int size);
 
 }

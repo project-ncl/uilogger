@@ -8,9 +8,11 @@ import org.jboss.pnc.uilogger.app.AppInfo;
 import org.jboss.pnc.uilogger.data.map.DTOConvertor;
 import org.jboss.pnc.uilogger.data.LogRepository;
 import org.jboss.pnc.uilogger.model.WebLog;
+import org.jboss.resteasy.annotations.jaxrs.QueryParam;
 
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -66,8 +68,10 @@ public class LogRest {
     @Path("/logs")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getLogs() {
-        List<WebLog> logs = logRepository.getAll()
+    public Response getLogs(
+            @QueryParam("pageIndex") @DefaultValue("0") Integer page,
+            @QueryParam("pageSize") @DefaultValue("50") Integer size) {
+        List<WebLog> logs = logRepository.getAll(page, size)
                 .stream()
                 .map(log -> dtoConvertor.fromLog(log))
                 .collect(Collectors.toList());
