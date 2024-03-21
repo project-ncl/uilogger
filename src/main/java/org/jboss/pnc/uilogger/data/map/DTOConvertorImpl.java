@@ -23,6 +23,7 @@ public class DTOConvertorImpl implements DTOConvertor {
         log.setUrl(webLog.getUrl());
         log.setData(webLog.getData());
         log.setMessage(webLog.getMessage());
+        log.setLabel(webLog.getLabel());
         if (webLog.getError() != null) {
             log.setErrorName(webLog.getError().getName());
             log.setErrorStack(webLog.getError().getStack());
@@ -41,6 +42,7 @@ public class DTOConvertorImpl implements DTOConvertor {
         webLog.setUrl(log.getUrl());
         webLog.setData(log.getData());
         webLog.setMessage(log.getMessage());
+        webLog.setLabel(log.getLabel());
         return webLog;
     }
 }

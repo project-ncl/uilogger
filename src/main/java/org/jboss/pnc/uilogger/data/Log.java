@@ -48,11 +48,14 @@ public class Log implements Serializable {
     @Column(name = "data")
     private String data;
 
-    @Column(name = "error_name")
-    private String errorName;
-
     @Column(name = "message")
     private String message;
+
+    @Column(name = "label")
+    private String label;
+
+    @Column(name = "error_name")
+    private String errorName;
 
     @Column(name = "error_stack")
     private String errorStack;
