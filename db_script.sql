@@ -4,6 +4,7 @@ CREATE TABLE uilogs (
     client_revision character varying,
     client_version character varying,
     data character varying,
+    label character varying,
     message character varying,
     error_name character varying,
     error_stack character varying,
@@ -18,3 +19,5 @@ CREATE TABLE uilogs (
 ALTER TABLE ONLY uilogs
     ADD CONSTRAINT uilogs_pkey PRIMARY KEY (id);
 GRANT ALL PRIVILEGES ON TABLE uilogs TO *db_user*;
+
+-- if empty db: CREATE SEQUENCE hibernate_sequence START 1;
