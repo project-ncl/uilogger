@@ -46,9 +46,9 @@
         <maven.compiler.target>17</maven.compiler.target>
 
 
-        <surefire-plugin.version>2.22.2</surefire-plugin.version>
-        <quarkus.version>1.13.7.Final</quarkus.version>
-        <resteasy.version>3.6.1.Final</resteasy.version>
+        <surefire-plugin.version>3.2.5</surefire-plugin.version>
+        <quarkus.version>3.9.2</quarkus.version>
+        <resteasy.version>6.2.8.Final</resteasy.version>
         <tagSuffix />
     </properties>
 
@@ -73,18 +73,8 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-client</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.jboss.spec.javax.xml.bind</groupId>
-                    <artifactId>jboss-jaxb-api_2.3_spec</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-rest-client</artifactId>
+            <artifactId>quarkus-resteasy</artifactId>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
@@ -272,7 +262,7 @@
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.8</version>
+                <version>1.6.13</version>
                 <extensions>true</extensions>
                 <configuration>
                     <serverId>ossrh</serverId>

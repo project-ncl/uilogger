@@ -2,11 +2,11 @@ package org.jboss.pnc.uilogger.data;
 
 import org.jboss.pnc.uilogger.model.Order;
 
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
-import javax.transaction.Transactional;
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Inject;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
+import jakarta.transaction.Transactional;
 import java.util.List;
 
 @RequestScoped
