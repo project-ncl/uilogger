@@ -17,6 +17,21 @@ public class WebLog {
     public WebLog() {
     }
 
+    public WebLog(
+            String id,
+            Client client,
+            String data,
+            Error error,
+            String label,
+            String message,
+            String timestamp,
+            String url,
+            User user) {
+        this(client, user, url, data, message, label, error);
+        this.id = id;
+        this.timestamp = timestamp;
+    }
+
     public WebLog(Client client, User user, String url, String data, String message, String label, Error error) {
         this.client = client;
         this.user = user;
