@@ -1,5 +1,5 @@
 CREATE TABLE uilogs (
-    id bigint NOT NULL,
+    id bigint GENERATED ALWAYS AS IDENTITY,
     client_name character varying,
     client_revision character varying,
     client_version character varying,
