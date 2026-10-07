@@ -4,6 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>org.jboss</groupId>
+        <artifactId>jboss-parent</artifactId>
+        <version>54</version>
+    </parent>
+
     <groupId>org.jboss.pnc.uilogger</groupId>
     <artifactId>uilogger</artifactId>
     <version>1.0.0-SNAPSHOT</version>
@@ -38,16 +44,11 @@
     </developers>
 
     <properties>
+        <maven.compiler.release>17</maven.compiler.release>
+        <jdk.min.version>17</jdk.min.version>
+
         <version.lombok>1.18.48</version.lombok>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-
-
-        <surefire-plugin.version>3.6.0</surefire-plugin.version>
         <quarkus.version>3.40.0</quarkus.version>
-        <resteasy.version>6.2.8.Final</resteasy.version>
         <tagSuffix />
         <quarkus.package.jar.type>uber-jar</quarkus.package.jar.type>
     </properties>
@@ -151,7 +152,6 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-source-plugin</artifactId>
-                    <version>3.4.0</version>
                     <executions>
                         <execution>
                             <id>attach-sources</id>
@@ -164,7 +164,6 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>3.12.0</version>
                     <executions>
                         <execution>
                             <id>attach-javadocs</id>
@@ -177,7 +176,6 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-gpg-plugin</artifactId>
-                    <version>3.2.8</version>
                     <executions>
                         <execution>
                             <id>sign-artifacts</id>
@@ -249,7 +247,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.16.0</version>
                 <configuration>
                     <!-- Add this to explicitly show the error -->
                     <forceJavacCompilerUse>true</forceJavacCompilerUse>
@@ -324,7 +321,6 @@
                     </plugin>
                     <plugin>
                         <artifactId>maven-failsafe-plugin</artifactId>
-                        <version>${surefire-plugin.version}</version>
                         <executions>
                             <execution>
                                 <goals>
