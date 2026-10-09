@@ -1,13 +1,13 @@
 package org.jboss.pnc.uilogger.data;
 
-import org.jboss.pnc.uilogger.model.Order;
+import java.util.List;
 
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.Query;
 import jakarta.transaction.Transactional;
-import java.util.List;
+
+import org.jboss.pnc.uilogger.model.Order;
 
 @RequestScoped
 public class LogRepositoryImpl implements LogRepository {
