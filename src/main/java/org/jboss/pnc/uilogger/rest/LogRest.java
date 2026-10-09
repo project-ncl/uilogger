@@ -1,12 +1,8 @@
 package org.jboss.pnc.uilogger.rest;
 
-import lombok.extern.slf4j.Slf4j;
-import org.eclipse.microprofile.openapi.annotations.Operation;
-import org.jboss.pnc.uilogger.data.map.DTOConvertor;
-import org.jboss.pnc.uilogger.data.LogRepository;
-import org.jboss.pnc.uilogger.model.Order;
-import org.jboss.pnc.uilogger.model.WebLog;
-import org.jboss.resteasy.annotations.jaxrs.QueryParam;
+import java.sql.Timestamp;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
@@ -17,9 +13,15 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import java.sql.Timestamp;
-import java.util.List;
-import java.util.stream.Collectors;
+
+import org.eclipse.microprofile.openapi.annotations.Operation;
+import org.jboss.pnc.uilogger.data.LogRepository;
+import org.jboss.pnc.uilogger.data.map.DTOConvertor;
+import org.jboss.pnc.uilogger.model.Order;
+import org.jboss.pnc.uilogger.model.WebLog;
+import org.jboss.resteasy.annotations.jaxrs.QueryParam;
+
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Path("/rest")

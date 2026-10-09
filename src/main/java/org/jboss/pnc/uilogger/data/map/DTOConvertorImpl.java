@@ -1,12 +1,12 @@
 package org.jboss.pnc.uilogger.data.map;
 
+import jakarta.enterprise.context.RequestScoped;
+
 import org.jboss.pnc.uilogger.data.Log;
 import org.jboss.pnc.uilogger.model.Client;
 import org.jboss.pnc.uilogger.model.Error;
 import org.jboss.pnc.uilogger.model.User;
 import org.jboss.pnc.uilogger.model.WebLog;
-
-import jakarta.enterprise.context.RequestScoped;
 
 @RequestScoped
 public class DTOConvertorImpl implements DTOConvertor {
