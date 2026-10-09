@@ -1,16 +1,17 @@
 package org.jboss.pnc.uilogger.rest;
 
-import lombok.extern.slf4j.Slf4j;
-import org.eclipse.microprofile.config.inject.ConfigProperty;
-import org.eclipse.microprofile.openapi.annotations.Operation;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
+
+import org.eclipse.microprofile.config.inject.ConfigProperty;
+import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.jboss.pnc.api.dto.ComponentVersion;
 import org.jboss.pnc.uilogger.app.AppInfo;
 
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Path("/")
