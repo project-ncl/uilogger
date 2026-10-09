@@ -1,8 +1,8 @@
 package org.jboss.pnc.uilogger.data;
 
-import org.jboss.pnc.uilogger.model.Order;
-
 import java.util.List;
+
+import org.jboss.pnc.uilogger.model.Order;
 
 public interface LogRepository {
 
